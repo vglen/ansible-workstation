@@ -1,15 +1,15 @@
 - name: Create directory /home/bob_henkel/test-ansible
   file:
     path: /home/bob_henkel/test-ansible
-    state: directory
+    state: absent
     owner: bob_henkel
     group: bob_henkel
     mode: 0755
 
-# - name: Create directory /home/bob_henkel/.local/bin
-#   file:
-#     path: /home/bob_henkel/.local/bin
-#     state: directory
-#     owner: bob_henkel
-#     group: bob_henkel
-#     mode: 0755
+- name: Create directory /home/bob_henkel/.local/bin
+  file:
+    path: /home/bob_henkel/.local/bin
+    state: directory
+    owner: bob_henkel
+    group: bob_henkel
+    mode: 0754
