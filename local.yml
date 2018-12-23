@@ -1,4 +1,9 @@
 - hosts: localhost
   become: true
   tasks:
-    apt: name:['htop', 'mc', 'tmux']
+  - name: Install packages
+    apt: name={{item}}
+    with_items:
+      - htop
+      - mc
+      - tmux
