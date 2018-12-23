@@ -1,0 +1,12 @@
+# - name: Install kubectl
+#   unarchive:
+#     src: https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl
+#     dest: /home/bob_henkel/test-ansible
+#     remote_src: yes
+- name: Download and install kubectl
+  get_url:
+    url: https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl
+    dest: /home/bob_henkel/test-ansible
+    owner: bob_henkel
+    group: bob_henkel
+    mode: 110
