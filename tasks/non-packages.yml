@@ -10,4 +10,4 @@
     checksum: sha256:4314fb34e46be9b5558eea014060d8283a82074b33366e4163e5afaa69ddae23
     owner: bob_henkel
     group: bob_henkel
-    mode: 110
+    mode: 0755
