@@ -2,12 +2,13 @@
 - apt_repository:
     repo: deb https://deb.etcher.io stable etcher
     state: present
-    filename: etcher
+    filename: absent
 
 - name: Add/Trust Bintray.com's GPG key
   apt_key: 
     keyserver: keyserver.ubuntu.com 
     id: 379CE192D401AB61
+    state: absent
   become: yes
 
 - name: Install packages
