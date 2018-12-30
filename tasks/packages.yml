@@ -13,18 +13,18 @@
   sudo: yes
   when: apt_result|failed
 
-# Add specified repository into sources list using specified filename.
-- apt_repository:
-    repo: deb https://deb.etcher.io stable etcher
-    state: present
-    filename: etcher
+# # Add specified repository into sources list using specified filename.
+# - apt_repository:
+#     repo: deb https://deb.etcher.io stable etcher
+#     state: present
+#     filename: etcher
 
-- name: Add/Trust Bintray.com's GPG key
-  apt_key: 
-    keyserver: keyserver.ubuntu.com 
-    id: 379CE192D401AB61
-  become: yes
-  when: apt_update|succeeded
+# - name: Add/Trust Bintray.com's GPG key
+#   apt_key: 
+#     keyserver: keyserver.ubuntu.com 
+#     id: 379CE192D401AB61
+#   become: yes
+#   when: apt_update|succeeded
 
 - name: Install packages
   apt: name={{item}}
