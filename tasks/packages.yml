@@ -9,6 +9,7 @@
 
 - name: retry if needed using command apt-get update
   command: apt-get update
+  register: apt_update
   sudo: yes
   when: apt_result|failed
 
@@ -17,13 +18,13 @@
     repo: deb https://deb.etcher.io stable etcher
     state: present
     filename: etcher
-  when: apt_result
 
 - name: Add/Trust Bintray.com's GPG key
   apt_key: 
     keyserver: keyserver.ubuntu.com 
     id: 379CE192D401AB61
   become: yes
+  when: apt_update|succeeded
 
 - name: Install packages
   apt: name={{item}}
