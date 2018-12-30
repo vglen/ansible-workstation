@@ -1,8 +1,8 @@
 # Add specified repository into sources list using specified filename.
 - apt_repository:
     repo: deb https://deb.etcher.io stable etcher
-    state: present
-    filename: absent
+    state: absent
+    filename: etcher
 
 - name: Add/Trust Bintray.com's GPG key
   apt_key: 
