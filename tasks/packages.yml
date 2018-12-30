@@ -8,7 +8,7 @@
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: 379CE192D401AB61
-    state: presen
+    state: present
 
 - name: Install packages
   apt: name={{item}}
