@@ -17,6 +17,7 @@
     repo: deb https://deb.etcher.io stable etcher
     state: present
     filename: etcher
+  when: apt_result
 
 - name: Add/Trust Bintray.com's GPG key
   apt_key: 
