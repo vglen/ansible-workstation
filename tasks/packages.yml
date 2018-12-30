@@ -5,9 +5,7 @@
     filename: etcher
 
 - name: Add/Trust Bintray.com's GPG key
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: 379CE192D401AB61
+  apt_key: keyserver=keyserver.ubuntu.com id=379CE192D401AB61
 
 - name: Install packages
   apt: name={{item}}
