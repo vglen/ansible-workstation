@@ -8,7 +8,6 @@
   apt_key: 
     keyserver: keyserver.ubuntu.com 
     id: 379CE192D401AB61
-    state: present
   become: yes
 
 - name: Install packages
