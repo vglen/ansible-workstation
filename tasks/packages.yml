@@ -1,3 +1,15 @@
+# Add specified repository into sources list using specified filename.
+- apt_repository:
+    repo: deb https://deb.etcher.io stable etcher
+    state: present
+    filename: etcher
+
+- name: Add/Trust Bintray.com's GPG key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 379CE192D401AB61
+    state: presen
+
 - name: Install packages
   apt: name={{item}}
   with_items:
@@ -6,3 +18,4 @@
     - tmux
     - fish
     - httpie
+    - etcher-electron
