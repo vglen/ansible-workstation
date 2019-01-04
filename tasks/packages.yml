@@ -25,6 +25,10 @@
     id: 379CE192D401AB61
   become: yes
   when: apt_update|succeeded
+  
+  - apt_repository:
+    repo: ppa:alexlarsson/flatpak
+    state: present
 
 - name: Install packages
   apt: name={{item}}
