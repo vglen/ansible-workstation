@@ -26,10 +26,15 @@
   become: yes
   when: apt_update|succeeded
 
-- name: Install the Authenticator app from flathub for current user
-  flatpak:
-    name: com.github.bilelmoussaoui.Authenticator
-    state: present
+# Not in 18.10 repo yet
+# - apt_repository:
+#     repo: ppa:alexlarsson/flatpak
+#     state: present
+
+# - name: Install the Authenticator app from flathub for current user
+#   flatpak:
+#     name: com.github.bilelmoussaoui.Authenticator
+#     state: present
 
 - name: Install packages
   apt: name={{item}}
