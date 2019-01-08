@@ -64,3 +64,5 @@
     - gnome-tweak-tool
     - mypaint
     - default-jre
+    - apt-transport-https
+    - rundeck-cli
