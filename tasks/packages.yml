@@ -25,9 +25,20 @@
     id: 379CE192D401AB61
   become: yes
   when: apt_update|succeeded
-  
+
+#RUNDECK CLI
 - apt_repository:
     repo: deb https://dl.bintray.com/rundeck/rundeck-deb /
+    state: present
+
+- name: Download bintray.gpg.key
+  get_url:
+    url: https://bintray.com/user/downloadSubjectPublicKey?username=bintray
+    dest: /tmp/bintray.gpg.key
+    
+- name: Add Apt signing key on remote server to keyring
+  apt_key:
+    file: /tmp/bintray.gpg.key
     state: present
   
 # Not in 18.10 repo yet
