@@ -26,6 +26,10 @@
   become: yes
   when: apt_update|succeeded
   
+- apt_repository:
+    repo: deb https://dl.bintray.com/rundeck/rundeck-deb /
+    state: present
+  
 # Not in 18.10 repo yet
 # - apt_repository:
 #     repo: ppa:alexlarsson/flatpak
