@@ -66,3 +66,4 @@
     - default-jre
     - apt-transport-https
     - rundeck-cli
+    - jq
