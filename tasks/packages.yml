@@ -67,3 +67,4 @@
     - apt-transport-https
     - rundeck-cli
     - jq
+    - krita
