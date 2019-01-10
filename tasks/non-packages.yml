@@ -36,6 +36,11 @@
     url: https://github.com/pulumi/pulumi/archive/v0.16.9.tar.gz
     dest: /tmp/pulumi.tar.gz
     checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
+    
+- name: Extract /tmp/pulumi.tar.gz to ~/.local/bin
+  unarchive:
+    src: /tmp/pulumi.tar.gz
+    dest: /home/bob_henkel/.local/bin
 #TODO 
 #vscode
 #slack
