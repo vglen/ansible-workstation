@@ -30,10 +30,6 @@
     owner: bob_henkel
     group: bob_henkel
     mode: 0755
-    
-- name: Install a XMind Minding Mapping .deb package from the internet.
-  apt:
-    deb: https://www.xmind.net/xmind/downloads/XMind-ZEN-for-Linux-64bit.deb
 
 - name: Download pulumi tarball
   get_url:
