@@ -55,6 +55,10 @@
   apt:
     deb: https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
 
+- name: Install a vscode .deb package from microsoft
+  apt:
+    deb: https://az764295.vo.msecnd.net/stable/61122f88f0bf01e2ac16bdb9e1bc4571755f5bd8/code_1.30.2-1546901646_amd64.deb
+
 - name: Install packages
   apt: name={{item}}
   with_items:
