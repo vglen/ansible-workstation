@@ -41,8 +41,10 @@
   unarchive:
     src: /tmp/pulumi.tar.gz
     dest: /home/bob_henkel/.local/bin
+    
+- name: install taskbook via snap
+  command: snap install taskbook
 #TODO 
-#vscode
 #slack
 #zoom
 #chrome
