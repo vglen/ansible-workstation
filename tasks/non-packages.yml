@@ -6,29 +6,29 @@
 - name: Download and install kubectl
   get_url:
     url: https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl
-    dest: /home/bob_henkel/.local/bin/kubectl
+    dest: /home/bhenkel/.local/bin/kubectl
     checksum: sha256:4314fb34e46be9b5558eea014060d8283a82074b33366e4163e5afaa69ddae23
-    owner: bob_henkel
-    group: bob_henkel
+    owner: bhenkel
+    group: bhenkel
     mode: 0755
 
 - name: Download and install goss
   get_url:
     url: https://github.com/aelsabbahy/goss/releases/download/v0.3.6/goss-linux-amd64
-    dest: /home/bob_henkel/.local/bin/goss
+    dest: /home/bhenkel/.local/bin/goss
     checksum: sha256:53dd1156ab66f2c4275fd847372e6329d895cfb2f0bcbec5f86c1c4df7236dde
-    owner: bob_henkel
-    group: bob_henkel
+    owner: bhenkel
+    group: bhenkel
     mode: 0755
     
     
 - name: Download and install stern
   get_url:
     url: https://github.com/aelsabbahy/goss/releases/download/v0.3.6/goss-linux-amd64https://github.com/wercker/stern/releases/download/1.10.0/stern_linux_amd64
-    dest: /home/bob_henkel/.local/bin/stern
+    dest: /home/bhenkel/.local/bin/stern
     checksum: sha256:a0335b298f6a7922c35804bffb32a68508077b2f35aaef44d9eb116f36bc7eda
-    owner: bob_henkel
-    group: bob_henkel
+    owner: bhenkel
+    group: bhenkel
     mode: 0755
 
 - name: Download pulumi tarball
@@ -40,7 +40,7 @@
 - name: Extract /tmp/pulumi.tar.gz to ~/.local/bin
   unarchive:
     src: /tmp/pulumi.tar.gz
-    dest: /home/bob_henkel/.local/bin
+    dest: /home/bhenkel/.local/bin
     
 - name: install taskbook via snap
   command: snap install taskbook
