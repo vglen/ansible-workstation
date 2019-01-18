@@ -58,6 +58,16 @@
 - name: Install a vscode .deb package from microsoft
   apt:
     deb: https://az764295.vo.msecnd.net/stable/61122f88f0bf01e2ac16bdb9e1bc4571755f5bd8/code_1.30.2-1546901646_amd64.deb
+ 
+ - name: Install a chrome .deb package from google
+   apt:
+     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+ 
+- name: Download pulumi tarball
+  get_url:
+    url: https://github.com/pulumi/pulumi/archive/v0.16.9.tar.gz
+    dest: /tmp/pulumi.tar.gz
+    checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
 
 - name: Install packages
   apt: name={{item}}
