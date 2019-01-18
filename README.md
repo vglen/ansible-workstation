@@ -2,7 +2,13 @@
 
 Thanks to https://opensource.com/article/18/3/manage-workstation-ansible for all the help!
 
-
+First install ansible:
+```
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+```
 Force apply:
 ```
 sudo ansible-pull --verbose -U https://github.com/bobhenkel/ansible-workstation.git
