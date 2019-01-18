@@ -46,10 +46,10 @@
 #     repo: ppa:alexlarsson/flatpak
 #     state: present
 
-- name: Install the Authenticator app from flathub for current user
-  flatpak:
-    name: com.github.bilelmoussaoui.Authenticator
-    state: present
+# - name: Install the Authenticator app from flathub for current user
+#   flatpak:
+#     name: com.github.bilelmoussaoui.Authenticator
+#     state: present
     
 - name: Install a bat .deb package from github
   apt:
