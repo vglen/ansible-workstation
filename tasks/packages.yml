@@ -1,3 +1,10 @@
+- name: Add/Trust Bintray.com's GPG key
+  apt_key: 
+    keyserver: keyserver.ubuntu.com 
+    id: 379CE192D401AB61
+  become: yes
+  when: apt_update|succeeded
+  
 - name: apt update
   apt: update_cache=yes cache_valid_time=3600
   register: apt_result
@@ -12,13 +19,6 @@
   register: apt_update
   sudo: yes
   when: apt_result|failed
-  
-- name: Add/Trust Bintray.com's GPG key
-  apt_key: 
-    keyserver: keyserver.ubuntu.com 
-    id: 379CE192D401AB61
-  become: yes
-  when: apt_update|succeeded
 
 # Add specified repository into sources list using specified filename.
 - apt_repository:
