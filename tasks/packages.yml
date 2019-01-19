@@ -88,3 +88,4 @@
     - krita
     - curl
     - libelf-dev #only needed on mac book
+    - simplescreenrecorder
