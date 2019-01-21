@@ -70,7 +70,7 @@
     checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
  
 # You can use shell to run other executables to perform actions inline
-- name: Run expect to wait for a successful PXE boot via out-of-band CIMC
+- name: Install Spotify
   shell: |
     # 1. Add the Spotify repository signing keys to be able to verify downloaded packages
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
@@ -108,3 +108,8 @@
     - simplescreenrecorder
     - dconf-editor
     - duplicity
+    #Required to install docker engine
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
