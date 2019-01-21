@@ -1,0 +1,4 @@
+- name: Install the authenticator flatpak
+  flatpak:
+    name:  https://flathub.org/repo/appstream/com.github.bilelmoussaoui.Authenticator.flatpakref
+    state: present
