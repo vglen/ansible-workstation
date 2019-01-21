@@ -73,7 +73,7 @@
   shell: |
     wget -O /home/bhenkel/Downloads/pet_0.3.2_linux_amd64.tar.gz https://github.com/knqyf263/pet/releases/download/v0.3.2/pet_0.3.2_linux_amd64.tar.gz
     tar -xvzf /home/bhenkel/Downloads/pet_0.3.2_linux_amd64.tar.gz
-    cd /home/bhenkel/Downloads
+    cd /home/bhenkel/Downloads/pet_0.3.2_linux_amd
     mv pet /home/bhenkel/.local/bin
     chown bhenkel:bhenkel /home/bhenkel/.local/bin/pet
 
