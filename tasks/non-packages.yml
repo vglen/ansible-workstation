@@ -60,8 +60,6 @@
     groupadd docker
     usermod -aG docker bhenkel
 
-    exit 0
-
 # - name: Download and install pet
 #   get_url:
 #     url: https://github.com/knqyf263/pet/releases/download/v0.3.2/pet_0.3.2_linux_amd64.tar.gz
