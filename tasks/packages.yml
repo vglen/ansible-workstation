@@ -109,6 +109,7 @@
     - dconf-editor
     - duplicity
     - peco
+    - solaar # smooth scrolling and status for logitech mice and keyboards https://github.com/pwr/Solaar
 #     - flatpak
 #     - gnome-software-plugin-flatpak
     #Required to install docker engine
