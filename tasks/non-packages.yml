@@ -42,14 +42,14 @@
     src: /tmp/pulumi.tar.gz
     dest: /home/bhenkel/.local/bin
 
-- name: Download and install pet
-  get_url:
-    url: https://github.com/knqyf263/pet/releases/download/v0.3.2/pet_0.3.2_linux_amd64.tar.gz
-    dest: /home/bhenkel/.local/bin/pet
-    checksum: sha256:58e800718f05d8ceea3c230b0d871c25d33926bd5541567b113fa56be6143c41
-    owner: bhenkel
-    group: bhenkel
-    mode: 0755
+# - name: Download and install pet
+#   get_url:
+#     url: https://github.com/knqyf263/pet/releases/download/v0.3.2/pet_0.3.2_linux_amd64.tar.gz
+#     dest: /home/bhenkel/.local/bin/pet
+#     checksum: sha256:58e800718f05d8ceea3c230b0d871c25d33926bd5541567b113fa56be6143c41
+#     owner: bhenkel
+#     group: bhenkel
+#     mode: 0755
 
 - name: install taskbook via snap
   command: snap install taskbook
