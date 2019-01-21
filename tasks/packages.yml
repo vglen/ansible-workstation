@@ -108,6 +108,7 @@
     - simplescreenrecorder
     - dconf-editor
     - duplicity
+    - peco
 #     - flatpak
 #     - gnome-software-plugin-flatpak
     #Required to install docker engine
