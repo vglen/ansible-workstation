@@ -11,3 +11,4 @@
     - include: tasks/directories.yml
     - include: tasks/packages.yml
     - include: tasks/non-packages.yml
+    - include: tasks/pips.yml
