@@ -1,0 +1,4 @@
+# Install (boto3) python package for sts.py
+- pip:
+    name: boto3
+    executable: pip3 
