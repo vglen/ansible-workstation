@@ -42,7 +42,7 @@
     src: /tmp/pulumi.tar.gz
     dest: /home/bhenkel/.local/bin
     
-- name: Instlal docker engine
+- name: Install docker engine
   shell: |
     apt-get update
     
@@ -55,7 +55,7 @@
     stable"
 
     apt-get update
-    apt-get install docker-ce
+    apt-get install -y docker-ce
 
     groupadd docker
     usermod -aG docker bhenkel
