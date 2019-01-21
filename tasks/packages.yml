@@ -108,6 +108,8 @@
     - simplescreenrecorder
     - dconf-editor
     - duplicity
+    - flatpak
+    - gnome-software-plugin-flatpak
     #Required to install docker engine
     - apt-transport-https
     - ca-certificates
