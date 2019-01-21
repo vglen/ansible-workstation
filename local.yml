@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: starship
   become: true
   pre_tasks:
     - name: update repositories
