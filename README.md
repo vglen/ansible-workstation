@@ -2,6 +2,8 @@
 
 Thanks to https://opensource.com/article/18/3/manage-workstation-ansible for all the help!
 
+This is my horrific/shoddy ansible setup to get my workstation setup, but it does what I need, good enough for now. This allows me to torch my workstation and build it up again without much worry.
+
 First install ansible:
 ```
 sudo apt-get install software-properties-common
