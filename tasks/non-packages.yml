@@ -69,6 +69,14 @@
 #     group: bhenkel
 #     mode: 0755
 
+- name: Download and install pet
+  shell: |
+    wget -O /home/bhenkel/Download/pet_0.3.2_linux_amd64.tar.gz https://github.com/knqyf263/pet/releases/download/v0.3.2/pet_0.3.2_linux_amd64.tar.gz
+    tar -xvzf /home/bhenkel/Download/pet_0.3.2_linux_amd64.tar.gz
+    cd /home/bhenkel/Download/pet_0.3.2_linux_amd64
+    mv pet /home/bhenkel/.local/bin
+    chown bhenkel:bhenkel /home/bhenkel/.local/bin/pet
+
 - name: install taskbook via snap
   command: snap install taskbook
 #TODO 
