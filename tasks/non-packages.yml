@@ -21,7 +21,6 @@
     group: bhenkel
     mode: 0755
     
-    
 - name: Download and install stern
   get_url:
     url: https://github.com/wercker/stern/releases/download/1.10.0/stern_linux_amd64
@@ -79,6 +78,16 @@
 
 - name: install taskbook via snap
   command: snap install taskbook
+  
+- name: Download and install aws-iam-authenticator
+  get_url:
+    url:     https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/0.4.0-alpha.1/aws-iam-authenticator_0.4.0-alpha.1_linux_amd64
+    dest: /home/bhenkel/.local/bin/aws-iam-authenticator_0.4.0-alpha.1_linux_amd64
+    checksum: sha256:a573503724b15857e4c766fb16b7992865f34715a5297e46a046af9536ccb71a
+    owner: bhenkel
+    group: bhenkel
+    mode: 0755    
+    
 #TODO 
 #slack
 #zoom
