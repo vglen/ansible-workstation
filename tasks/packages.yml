@@ -111,6 +111,7 @@
     - peco
     - solaar # smooth scrolling and status for logitech mice and keyboards https://github.com/pwr/Solaar
     - python3-pip
+    - keepassxc
 #     - flatpak
 #     - gnome-software-plugin-flatpak
     #Required to install docker engine
