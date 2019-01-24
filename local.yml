@@ -4,6 +4,8 @@
     - name: update repositories
       apt: update_cache=yes
       changed_when: False
+  vars_files:
+  - "vars/main.yml"
 
   tasks:
     - include: tasks/users.yml
