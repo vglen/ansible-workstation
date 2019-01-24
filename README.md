@@ -13,10 +13,11 @@ sudo apt-get install ansible
 ```
 Force apply:
 ```
-sudo ansible-pull --verbose -U https://github.com/bobhenkel/ansible-workstation.git
+sudo ansible-pull --extra-vars "user=<USERNAME>" --verbose -U https://github.com/bobhenkel/ansible-workstation.git
 ```
 Otherwise the cronjob will run this at whatever interval is set for the cronjob to run.
 
+Run Manually:
 ```
-ansible-playbook local.yml --check --extra-vars "user=gstummer"
+ansible-playbook local.yml --check --extra-vars "user=<USERNAME>"
 ```
