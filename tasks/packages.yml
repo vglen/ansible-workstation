@@ -119,3 +119,4 @@
     - ca-certificates
     - curl
     - software-properties-common
+    - gnome-software-plugin-flatpak

@@ -4,10 +4,12 @@
     - name: update repositories
       apt: update_cache=yes
       changed_when: False
+  vars_files:
+  - "vars/main.yml"
 
   tasks:
     - include: tasks/users.yml
-    - include: tasks/cron.yml
+      #- include: tasks/cron.yml
     - include: tasks/directories.yml
     - include: tasks/packages.yml
     - include: tasks/non-packages.yml

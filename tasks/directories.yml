@@ -1,15 +1,15 @@
-- name: Create directory /home/bhenkel/test-ansible
+- name: Create directory test-ansible
   file:
-    path: /home/bhenkel/test-ansible
+    path: /home/{{ user }}/test-ansible
     state: absent
-    owner: bhenkel
-    group: bhenkel
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: 0755
 
-- name: Create directory /home/bhenkel/.local/bin
+- name: Create directory .local/bin
   file:
-    path: /home/bhenkel/.local/bin
+    path: /home/{{ user }}/.local/bin
     state: directory
-    owner: bhenkel
-    group: bhenkel
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: 0754

@@ -16,3 +16,7 @@ Force apply:
 sudo ansible-pull --verbose -U https://github.com/bobhenkel/ansible-workstation.git
 ```
 Otherwise the cronjob will run this at whatever interval is set for the cronjob to run.
+
+```
+ansible-playbook local.yml --check --extra-vars "user=gstummer"
+```
