@@ -4,3 +4,10 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0644
+    
+- copy:
+    src: "{{ playbook_dir }}/files/home/myuser/.bashrc"
+    dest: "/home/{{ user }}/.bashrc"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
