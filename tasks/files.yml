@@ -1,5 +1,5 @@
 - copy:
-    src: "{{ role_path }}/files/home/myuser/.profile"
+    src: "{{role_path}}/files/home/myuser/.profile"
     dest: "/home/{{ user }}/.profile"
     owner: "{{ user }}"
     group: "{{ user }}"
