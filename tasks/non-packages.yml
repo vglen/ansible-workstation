@@ -51,11 +51,16 @@
     url: https://get.pulumi.com/releases/sdk/pulumi-v0.16.11-linux-x64.tar.gz?__hstc=228626179.150ff118580d5479a33bbcc4d9bb5be0.1548367163159.1548367163159.1548367163159.1&__hssc=228626179.3.1548387468301&__hsfp=3055707178
     dest: /tmp/pulumi.tar.gz
     checksum: sha256:e56cfbd9e09831fbe8488d6fbed5bbc8a142b8c04a2a4ce86d1bb5162ee6d69c
+    owner: "{{ user }}"
+    group: "{{ user }}"
     
 - name: Extract /tmp/pulumi.tar.gz to ~/.local/bin
   unarchive:
     src: /tmp/pulumi.tar.gz
     dest: "/home/{{ user }}/.local/bin"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
     
 - name: Install docker engine
   shell: |
