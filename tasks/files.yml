@@ -1,0 +1,3 @@
+- copy:
+    src: "{{ role_path }}/files/home/myuser/.profile"
+    dest: ""/home/{{ user }}/.profile"
