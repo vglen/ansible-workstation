@@ -15,3 +15,4 @@
     - include: tasks/non-packages.yml
     - include: tasks/pips.yml
     - include: tasks/flatpaks.yml
+    - include: tasks/files.yml
