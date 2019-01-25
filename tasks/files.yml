@@ -1,6 +1,6 @@
 - copy:
     src: "{{ role_path }}/files/home/myuser/.profile"
-    dest: ""/home/{{ user }}/.profile"
+    dest: "/home/{{ user }}/.profile"
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0644
