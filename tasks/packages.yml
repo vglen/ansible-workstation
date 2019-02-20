@@ -1,10 +1,10 @@
 - name: Add/Trust Bintray.com's GPG key
-  apt_key: 
-    keyserver: keyserver.ubuntu.com 
-    id: 379CE192D401AB61
+  apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 379CE192D401AB61
   become: yes
 #   when: apt_update|succeeded
-  
+
 # - name: apt update
 #   apt: update_cache=yes cache_valid_time=3600
 #   register: apt_result
@@ -22,25 +22,25 @@
 
 # Add specified repository into sources list using specified filename.
 - apt_repository:
-    repo: deb https://deb.etcher.io stable etcher
-    state: present
-    filename: etcher
+        repo: deb https://deb.etcher.io stable etcher
+        state: present
+        filename: etcher
 
 #RUNDECK CLI
 - apt_repository:
-    repo: deb https://dl.bintray.com/rundeck/rundeck-deb /
-    state: present
+        repo: deb https://dl.bintray.com/rundeck/rundeck-deb /
+        state: present
 
 - name: Download bintray.gpg.key
   get_url:
-    url: https://bintray.com/user/downloadSubjectPublicKey?username=bintray
-    dest: /tmp/bintray.gpg.key
-    
+        url: https://bintray.com/user/downloadSubjectPublicKey?username=bintray
+        dest: /tmp/bintray.gpg.key
+
 - name: Add Apt signing key on remote server to keyring
   apt_key:
-    file: /tmp/bintray.gpg.key
-    state: present
-  
+        file: /tmp/bintray.gpg.key
+        state: present
+
 # Not in 18.10 repo yet
 # - apt_repository:
 #     repo: ppa:alexlarsson/flatpak
@@ -50,75 +50,80 @@
 #   flatpak:
 #     name: com.github.bilelmoussaoui.Authenticator
 #     state: present
-    
+
 - name: Install a bat .deb package from github
   apt:
-    deb: https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
+        deb: https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
+
+### VS Code ###
+- name: "Install Azure cli apt key"
+  apt_key:
+        keyserver: packages.microsoft.com
+        id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+
+- name: "Install VS Code apt repo"
+  apt_repository:
+        repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+        state: present
+        filename: vscode.list
 
 - name: Install a vscode .deb package from microsoft
   apt:
-    deb: https://az764295.vo.msecnd.net/stable/61122f88f0bf01e2ac16bdb9e1bc4571755f5bd8/code_1.30.2-1546901646_amd64.deb
- 
+        name: code
+        state: present
+
 - name: Install a chrome .deb package from google
   apt:
-    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
- 
+        deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
 - name: Download pulumi tarball
   get_url:
-    url: https://github.com/pulumi/pulumi/archive/v0.16.9.tar.gz
-    dest: /tmp/pulumi.tar.gz
-    checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
- 
+        url: https://github.com/pulumi/pulumi/archive/v0.16.9.tar.gz
+        dest: /tmp/pulumi.tar.gz
+        checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
+
 # You can use shell to run other executables to perform actions inline
 - name: Install Spotify
   shell: |
-    # 1. Add the Spotify repository signing keys to be able to verify downloaded packages
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+        # 1. Add the Spotify repository signing keys to be able to verify downloaded packages
+        apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 
-    # 2. Add the Spotify repository
-    echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+        # 2. Add the Spotify repository
+        echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 
-    # 3. Update list of available packages
-    apt-get update
+        # 3. Update list of available packages
+        apt-get update
 
-    # 4. Install Spotify
-    apt-get install spotify-client
+        # 4. Install Spotify
+        apt-get install spotify-client
 
-    exit 0
+        exit 0
 
 - name: Install packages
   apt: name={{item}}
   with_items:
-    - htop
-    - mc
-    - tmux
-    - fish
-    - httpie
-    - etcher-electron
-    - kubectx
-    - gnome-tweak-tool
-    - mypaint
-    - default-jre
-    - apt-transport-https
-    - rundeck-cli
-    - jq
-    - krita
-    - curl
-    - libelf-dev #only needed on mac book
-    - simplescreenrecorder
-    - dconf-editor
-    - duplicity
-    - peco
-    - solaar # smooth scrolling and status for logitech mice and keyboards https://github.com/pwr/Solaar
-    - python3-pip
-    - keepassxc
-#     - flatpak
-#     - gnome-software-plugin-flatpak
-    #Required to install docker engine
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - software-properties-common
-    - gnome-software-plugin-flatpak
-    - tree
-    - speedtest-cli
+        - htop
+        - mc
+        - httpie
+        - etcher-electron
+        - gnome-tweak-tool
+        - mypaint
+        - default-jre
+        - apt-transport-https
+        - rundeck-cli
+        - jq
+        - curl
+        - simplescreenrecorder
+        - dconf-editor
+        - duplicity
+        - peco
+        - python3-pip
+        - keepassxc
+        - ca-certificates
+        - curl
+        - software-properties-common
+        - gnome-software-plugin-flatpak
+        - tree
+        - speedtest-cli
+        - lsb-release
+        - dirmngr
