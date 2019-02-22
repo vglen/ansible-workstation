@@ -1,56 +1,56 @@
 - name: Download and install kubectl
   get_url:
-        url: https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl
-        dest: "/home/{{ user }}/.local/bin/kubectl"
-        checksum: sha256:4314fb34e46be9b5558eea014060d8283a82074b33366e4163e5afaa69ddae23
-        owner: "{{ user }}"
-        group: "{{ user }}"
-        mode: 0755
+    url: https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl
+    dest: "/home/{{ user }}/.local/bin/kubectl"
+    checksum: sha256:4314fb34e46be9b5558eea014060d8283a82074b33366e4163e5afaa69ddae23
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
 
 - name: Download and install helm
   get_url:
-        url: https://storage.googleapis.com/kubernetes-helm/helm-v2.12.3-linux-amd64.tar.gz
-        dest: /tmp
-        checksum: sha256:3425a1b37954dabdf2ba37d5d8a0bd24a225bb8454a06f12b115c55907809107
-        owner: "{{ user }}"
-        group: "{{ user }}"
-        mode: 0755
+    url: https://storage.googleapis.com/kubernetes-helm/helm-v2.12.3-linux-amd64.tar.gz
+    dest: /tmp
+    checksum: sha256:3425a1b37954dabdf2ba37d5d8a0bd24a225bb8454a06f12b115c55907809107
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
 
 - name: Extract /tmp/helm-v2.12.3-linux-amd64.tar.gz to ~/.local/bin
   unarchive:
-        src: /tmp/helm-v2.12.3-linux-amd64.tar.gz
-        dest: "/home/{{ user }}/.local/bin"
-        owner: "{{ user }}"
-        group: "{{ user }}"
+    src: /tmp/helm-v2.12.3-linux-amd64.tar.gz
+    dest: "/home/{{ user }}/.local/bin"
+    owner: "{{ user }}"
+    group: "{{ user }}"
   args:
-        creates: "/home/{{ user }}/.local/helm"
+    creates: "/home/{{ user }}/.local/helm"
 
 - name: Move helm to ~/.local/bin
   shell: "mv /home/{{ user }}/.local/bin/linux-amd64/helm /home/{{ user }}/.local/bin/."
 
 - name: Download and install goss
   get_url:
-        url: https://github.com/aelsabbahy/goss/releases/download/v0.3.6/goss-linux-amd64
-        dest: "/home/{{ user }}/.local/bin/goss"
-        checksum: sha256:53dd1156ab66f2c4275fd847372e6329d895cfb2f0bcbec5f86c1c4df7236dde
-        owner: "{{ user }}"
-        group: "{{ user }}"
-        mode: 0755
+    url: https://github.com/aelsabbahy/goss/releases/download/v0.3.6/goss-linux-amd64
+    dest: "/home/{{ user }}/.local/bin/goss"
+    checksum: sha256:53dd1156ab66f2c4275fd847372e6329d895cfb2f0bcbec5f86c1c4df7236dde
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
 
 - name: Download and install stern
   get_url:
-        url: https://github.com/wercker/stern/releases/download/1.10.0/stern_linux_amd64
-        dest: "/home/{{ user }}/.local/bin/stern"
-        checksum: sha256:a0335b298f6a7922c35804bffb32a68508077b2f35aaef44d9eb116f36bc7eda
-        owner: "{{ user }}"
-        group: "{{ user }}"
-        mode: 0755
+    url: https://github.com/wercker/stern/releases/download/1.10.0/stern_linux_amd64
+    dest: "/home/{{ user }}/.local/bin/stern"
+    checksum: sha256:a0335b298f6a7922c35804bffb32a68508077b2f35aaef44d9eb116f36bc7eda
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
 
 - name: Download pulumi tarball
   get_url:
-        url: https://github.com/pulumi/pulumi/archive/v0.16.9.tar.gz
-        dest: /tmp/pulumi.tar.gz
-        checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
+    url: https://github.com/pulumi/pulumi/archive/v0.16.9.tar.gz
+    dest: /tmp/pulumi.tar.gz
+    checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
 
 # - name: Extract /tmp/pulumi.tar.gz to ~/.local/bin
 #   unarchive:
@@ -59,72 +59,73 @@
 
 - name: Install docker engine
   shell: |
-        apt-get update
+    apt-get update
 
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-        apt-key fingerprint 0EBFCD88
-        add-apt-repository \
-        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-        $(lsb_release -cs) \
-        stable"
+    apt-key fingerprint 0EBFCD88
+    add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
 
-        apt-get update
-        apt-get install -y docker-ce
+    apt-get update
+    apt-get install -y docker-ce
 
-        groupadd docker
-        usermod -aG docker {{ user }}
+    groupadd docker
+    usermod -aG docker {{ user }}
 
 - name: Download and install pet
   get_url:
-        url: https://github.com/knqyf263/pet/releases/download/v0.3.0/pet_0.3.0_linux_amd64.deb
-        dest: /tmp/pet_0.3.0_linux_amd64.deb
-        checksum: sha256:059b4f4c2d91396a80e156e4d4c429dc4bc8ff81b666789ceca7f948b9db93c6
+    url: https://github.com/knqyf263/pet/releases/download/v0.3.0/pet_0.3.0_linux_amd64.deb
+    dest: /tmp/pet_0.3.0_linux_amd64.deb
+    checksum: sha256:059b4f4c2d91396a80e156e4d4c429dc4bc8ff81b666789ceca7f948b9db93c6
 
 - name: Install pet .deb
   apt:
-        deb: /tmp/pet_0.3.0_linux_amd64.deb
+    deb: /tmp/pet_0.3.0_linux_amd64.deb
 
 - name: install taskbook via snap
   command: snap install taskbook
 
 - name: Download and install aws-iam-authenticator
   get_url:
-        url: https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/0.4.0-alpha.1/aws-iam-authenticator_0.4.0-alpha.1_linux_amd64
-        dest: "/home/{{ user }}/.local/bin/aws-iam-authenticator_0.4.0-alpha.1_linux_amd64"
-        checksum: sha256:a573503724b15857e4c766fb16b7992865f34715a5297e46a046af9536ccb71a
-        owner: "{{ user }}"
-        group: "{{ user }}"
-        mode: 0755
+    url: https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/0.4.0-alpha.1/aws-iam-authenticator_0.4.0-alpha.1_linux_amd64
+    dest: "/home/{{ user }}/.local/bin/aws-iam-authenticator_0.4.0-alpha.1_linux_amd64"
+    checksum: sha256:a573503724b15857e4c766fb16b7992865f34715a5297e46a046af9536ccb71a
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0755
 
+## googs ###
 - name: "Install google cloud cli apt key"
   apt_key:
-        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-        state: present
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
 - name: "Install google cloud cli apt repo"
   apt_repository:
-        repo: deb https://packages.cloud.google.com/apt cloud-sdk-{{ ansible_distribution_release }} main
-        state: present
-        filename: google-cloud-sdk.list
+    repo: deb https://packages.cloud.google.com/apt cloud-sdk-{{ ansible_distribution_release }} main
+    state: present
+    filename: google-cloud-sdk.list
 
 - name: "Install gcloud"
   apt:
-        name: google-cloud-sdk
-        state: present
-        update_cache: true
+    name: google-cloud-sdk
+    state: present
+    update_cache: true
 
 ### Azure ###
 - name: "Install Azure cli apt repo"
   apt_repository:
-        repo: deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_distribution_release }} main
-        state: present
-        filename: azure-cli.list
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_distribution_release }} main
+    state: present
+    filename: azure-cli.list
 
 - name: "Install Azure CLI"
   apt:
-        name: azure-cli
-        state: present
-        update_cache: true
+    name: azure-cli
+    state: present
+    update_cache: true
 #TODO
 #slack
 #zoom
