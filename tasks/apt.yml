@@ -1,0 +1,92 @@
+### BINTRAY ####
+- name: Add/Trust Bintray.com's GPG key
+  apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 379CE192D401AB61
+
+### DOCKER ###
+- name: "Install docker apt key"
+  apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+        id: 0EBFCD88
+- name: "docker apt repo"
+  apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+        state: present
+        filename: docker
+
+### etcher ###
+- name: "etcher apt repo"
+  apt_repository:
+        repo: deb https://deb.etcher.io stable etcher
+        state: present
+        filename: etcher
+
+### GOOGS ###
+- name: "Install google cloud cli apt key"
+  apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+- name: "Install google cloud cli apt repo"
+  apt_repository:
+        repo: deb https://packages.cloud.google.com/apt cloud-sdk-{{ ansible_distribution_release }} main
+        state: present
+        filename: google-cloud-sdk.list
+
+### M$ ###
+- name: "Install Azure cli apt key"
+  apt_key:
+        keyserver: packages.microsoft.com
+        id: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+
+- name: "Install VS Code apt repo"
+  apt_repository:
+        repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+        state: present
+        filename: vscode.list
+
+- name: "Install Azure cli apt repo"
+  apt_repository:
+        repo: deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_distribution_release }} main
+        state: present
+        filename: azure-cli.list
+
+#RUNDECK CLI
+- apt_repository:
+        repo: deb https://dl.bintray.com/rundeck/rundeck-deb /
+        state: present
+
+- name: Download bintray.gpg.key
+  get_url:
+        url: https://bintray.com/user/downloadSubjectPublicKey?username=bintray
+        dest: /tmp/bintray.gpg.key
+
+- name: Add Apt signing key on remote server to keyring
+  apt_key:
+        file: /tmp/bintray.gpg.key
+        state: present
+
+### SPOTIFY ###
+- name: "Install spotify apt key"
+  apt_key:
+        url: hkp://keyserver.ubuntu.com
+        state: present
+        id: 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+
+- name: "Install spotify apt repo"
+  apt_repository:
+        repo: deb http://repository.spotify.com stable non-free
+        state: present
+        filename: spotify.list
+
+### SUBLIME ###
+- name: "Install google cloud cli apt key"
+  apt_key:
+        url: https://download.sublimetext.com/sublimehq-pub.gpg
+        state: present
+- name: "Install google cloud cli apt repo"
+  apt_repository:
+        repo: deb https://download.sublimetext.com/ apt/stable/
+        state: present
+        filename: sublime-text.list

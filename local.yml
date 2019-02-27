@@ -13,6 +13,7 @@
     - include: tasks/users.yml
     - include: tasks/cron.yml
     - include: tasks/directories.yml
+    - include: tasks/apt.yml
     - include: tasks/packages.yml
     - include: tasks/non-packages.yml
     - include: tasks/pips.yml
