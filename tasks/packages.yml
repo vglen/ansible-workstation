@@ -1,50 +1,19 @@
 - name: "Install bat, a cat(1) clone with wings"
   apt:
-      deb: https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
+        deb: https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
 
 - name: Install a chrome .deb package from google
   apt:
-      deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 - name: Download pulumi tarball
   get_url:
-      url: https://github.com/pulumi/pulumi/archive/v0.16.9.tar.gz
-      dest: /tmp/pulumi.tar.gz
-      checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
+        url: https://github.com/pulumi/pulumi/archive/v0.16.9.tar.gz
+        dest: /tmp/pulumi.tar.gz
+        checksum: sha256:79b00069d61cef927ff23fa9f8620c5c177f1323d2d0065903ee26b9df3f6858
 
 - name: Install packages
-  apt: name={{item}}
-  with_items:
-      - htop
-      - mc
-      - httpie
-      - etcher-electron
-      - gnome-tweak-tool
-      - mypaint
-      - default-jre
-      - apt-transport-https
-      - rundeck-cli
-      - jq
-      - curl
-      - simplescreenrecorder
-      - dconf-editor
-      - duplicity
-      - peco
-      - python3-pip
-      - keepassxc
-      - ca-certificates
-      - curl
-      - software-properties-common
-      - gnome-software-plugin-flatpak
-      - tree
-      - speedtest-cli
-      - lsb-release
-      - dirmngr
-      - tldr
-      - whois
-      - sublime-text
-      - azure-cli
-      - google-cloud-sdk
-      - code
-      - spotify-client
-      - docker-ce
+  apt:
+        name: [ 'htop', 'mc', 'httpie','etcher-electron','gnome-tweak-tool', 'mypaint', 'default-jre', 'apt-transport-https', 'rundeck-cli', 'jq', 'curl', 'simplescreenrecorder', 'dconf-editor', 'duplicity', 'peco', 'python3-pip', 'keepassxc', 'ca-certificates', 'software-properties-common', 'gnome-software-plugin-flatpak', 'tree', 'speedtest-cli', 'lsb-release', 'dirmngr', 'tldr', 'whois', 'sublime-text', 'azure-cli', 'google-cloud-sdk', 'code', 'docker-ce', 'git', 'net-tools', 'spotify-client', 'brave-browser', 'brave-keyring'
+        ]
+        update_cache: yes
