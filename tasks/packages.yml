@@ -55,5 +55,6 @@
         "brave-keyring",
         "restic",
         "lm-sensors",
+        "i8kutils",
       ]
     update_cache: yes
