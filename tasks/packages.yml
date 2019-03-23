@@ -54,5 +54,6 @@
         "brave-browser",
         "brave-keyring",
         "restic",
+        "lm-sensors",
       ]
     update_cache: yes
