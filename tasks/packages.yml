@@ -56,5 +56,6 @@
         "restic",
         "lm-sensors",
         "i8kutils",
+        "gbt",
       ]
     update_cache: yes
