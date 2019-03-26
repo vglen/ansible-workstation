@@ -57,5 +57,6 @@
         "lm-sensors",
         "i8kutils",
         "gbt",
+        "libpam-u2f",
       ]
     update_cache: yes
