@@ -58,5 +58,6 @@
         "i8kutils",
         "gbt",
         "libpam-u2f",
+        "vim",
       ]
     update_cache: yes
